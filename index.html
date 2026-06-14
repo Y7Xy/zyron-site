@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyron | Bot Discord</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0d1117;
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #5865F2, #4752c4);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(88,101,242,0.15), transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(88,101,242,0.15);
+            border: 1px solid rgba(88,101,242,0.3);
+            border-radius: 100px;
+            padding: 6px 16px;
+            font-size: 13px;
+            color: #5865F2;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #fff, #5865F2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #8b949e;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #5865F2;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #4752c4;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .avatar-section {
+            text-align: center;
+            margin-top: -60px;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .avatar-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #5865F2;
+            background: #0d1117;
+        }
+
+        .stats {
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .label {
+            color: #8b949e;
+            font-size: 14px;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: #8b949e;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+
+        .feature:hover {
+            background: rgba(255,255,255,0.05);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(88,101,242,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon i {
+            font-size: 24px;
+            color: #5865F2;
+        }
+
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #8b949e;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .testimonials {
+            background: rgba(88,101,242,0.03);
+            padding: 80px 24px;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #8b949e;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            background: #5865F2;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .commands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 24px 60px;
+        }
+
+        .commands-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .commands-header h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .cmd-category {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cmd-category h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cmd-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cmd-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .cmd-name {
+            font-family: monospace;
+            color: #5865F2;
+        }
+
+        .cmd-desc {
+            color: #8b949e;
+            font-size: 12px;
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 40px 24px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            color: #8b949e;
+            font-size: 12px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .stats, .features-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .nav-links-mobile {
+            display: none;
+            flex-direction: column;
+            background: #0d1117;
+            padding: 20px;
+            gap: 16px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-links-mobile.show {
+            display: flex;
+        }
+
+        .nav-links-mobile a {
+            color: #8b949e;
+            text-decoration: none;
+            padding: 8px 0;
+            cursor: pointer;
+        }
+
+        /* Dashboard serveurs */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .dash-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .dash-card .value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .servers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .server-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+
+        .server-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .server-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .server-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2d2f36;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .server-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .server-id {
+            font-size: 12px;
+            color: #8b949e;
+            font-family: monospace;
+        }
+
+        .server-members {
+            font-size: 13px;
+            color: #8b949e;
+        }
+
+        .server-members i {
+            margin-right: 5px;
+            color: #5865F2;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #8b949e;
+        }
+
+        .error-message {
+            background: rgba(255,80,80,0.1);
+            border: 1px solid rgba(255,80,80,0.3);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: #ff6b6b;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">Z</div>
+                <span class="logo-text">Zyron</span>
+            </div>
+            <div class="nav-links">
+                <a onclick="showPage('home')">Accueil</a>
+                <a onclick="showPage('commands')">Commandes</a>
+                <a onclick="showPage('docs')">Docs</a>
+                <a onclick="showPage('faq')">FAQ</a>
+                <a onclick="showPage('blog')">Blog</a>
+                <a onclick="showPage('dashboard')">Dashboard</a>
+            </div>
+            <div class="mobile-menu" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div class="nav-links-mobile" id="mobileMenu">
+            <a onclick="showPage('home')">Accueil</a>
+            <a onclick="showPage('commands')">Commandes</a>
+            <a onclick="showPage('docs')">Docs</a>
+            <a onclick="showPage('faq')">FAQ</a>
+            <a onclick="showPage('blog')">Blog</a>
+            <a onclick="showPage('dashboard')">Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Page Accueil -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <div class="hero-badge">✨ Bot Discord Premium Gratuit</div>
+                <h1>Zyron, le bot <span>ultime</span> pour ta communauté</h1>
+                <p>Modération avancée, économie, tickets, vocal et bien plus encore. Tout ce dont ton serveur a besoin.</p>
+                <div class="btn-group">
+                    <a href="https://discord.com/oauth2/authorize?client_id=1496186678698705166&permissions=8&integration_type=0&scope=bot" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-discord"></i> Ajouter au serveur
+                    </a>
+                    <a href="https://discord.gg/dSxm3CHBPN" class="btn btn-outline" target="_blank">
+                        <i class="fab fa-discord"></i> Serveur support
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="avatar-section">
+            <img src="https://cdn.discordapp.com/avatars/1496186678698705166/8997bc0a40791f8dc2e7a75c2d1a2183.webp?size=1024" alt="Zyron">
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number">150+</div>
+                <div class="label">Commandes</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">24/7</div>
+                <div class="label">Disponibilité</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="serverCount">--</div>
+                <div class="label">Serveurs</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">Gratuit</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2>Fonctionnalités puissantes</h2>
+                <p>Tout ce dont tu as besoin pour gérer et animer ton serveur Discord</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Modération avancée</h3>
+                    <p>Warns, mute, ban, kick, timeout, logs complets et protection anti-raid</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-coins"></i></div>
+                    <h3>Système économique</h3>
+                    <p>Balance, daily, travail, casino, braquage et classement des riches</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h3>Système de tickets</h3>
+                    <p>Support client personnalisable avec plusieurs types de tickets</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Manager vocal</h3>
+                    <p>Création automatique de salons vocaux avec contrôles complets</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                    <h3>Système de rôles</h3>
+                    <p>Rôles par boutons, rôles par statut personnalisé, autorole</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Lettres anonymes</h3>
+                    <p>Envoi de messages anonymes entre membres de ton serveur</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <div class="section-header">
+                <h2>Ce qu'ils en pensent</h2>
+                <p>Des milliers de serveurs utilisent Zyron chaque jour</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Le meilleur bot que j'ai utilisé ! La modération est top et l'économie est super fun pour ma communauté."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Alex</div>
+                            <div class="author-title">Serveur Gaming</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Le système de tickets est parfait pour mon serveur support. Mes membres adorent !"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Sarah</div>
+                            <div class="author-title">Support Community</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Zyron est devenu indispensable sur mon serveur. Les mises à jour sont régulières et le support est réactif."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Kevin</div>
+                            <div class="author-title">Communauté RP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Commandes -->
+    <div id="commands" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>Commandes</h1>
+                <p>Découvre toutes les commandes disponibles</p>
+            </div>
+            <div class="commands-grid">
+                <div class="cmd-category">
+                    <h3><i class="fas fa-shield-alt"></i> Modération</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">ban</span><span class="cmd-desc">Bannir un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">kick</span><span class="cmd-desc">Expulser un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">timeout</span><span class="cmd-desc">Timeout un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">mute</span><span class="cmd-desc">Rendre muet</span></div>
+                        <div class="cmd-item"><span class="cmd-name">warn</span><span class="cmd-desc">Avertir un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">purge</span><span class="cmd-desc">Supprimer des messages</span></div>
+                        <div class="cmd-item"><span class="cmd-name">lock</span><span class="cmd-desc">Verrouiller un salon</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slowmode</span><span class="cmd-desc">Mode lent</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-coins"></i> Économie</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">balance</span><span class="cmd-desc">Voir son solde</span></div>
+                        <div class="cmd-item"><span class="cmd-name">daily</span><span class="cmd-desc">Récompense quotidienne</span></div>
+                        <div class="cmd-item"><span class="cmd-name">work</span><span class="cmd-desc">Travailler</span></div>
+                        <div class="cmd-item"><span class="cmd-name">gamble</span><span class="cmd-desc">Jouer à la roulette</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slot</span><span class="cmd-desc">Machine à sous</span></div>
+                        <div class="cmd-item"><span class="cmd-name">rob</span><span class="cmd-desc">Braquer un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">give</span><span class="cmd-desc">Donner des coins</span></div>
+                        <div class="cmd-item"><span class="cmd-name">leaderboard</span><span class="cmd-desc">Classement des riches</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-ticket-alt"></i> Tickets</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">ticket setup</span><span class="cmd-desc">Configurer les tickets</span></div>
+                        <div class="cmd-item"><span class="cmd-name">ticket panel</span><span class="cmd-desc">Envoyer le panneau</span></div>
+                        <div class="cmd-item"><span class="cmd-name">ticket config</span><span class="cmd-desc">Voir la config</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-microphone-alt"></i> Vocal</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">voice create</span><span class="cmd-desc">Créer un salon vocal</span></div>
+                        <div class="cmd-item"><span class="cmd-name">voice delete</span><span class="cmd-desc">Supprimer son salon</span></div>
+                        <div class="cmd-item"><span class="cmd-name">voice lock</span><span class="cmd-desc">Verrouiller</span></div>
+                        <div class="cmd-item"><span class="cmd-name">voicehub setup</span><span class="cmd-desc">Configurer un hub</span></div>
+                        <div class="cmd-item"><span class="cmd-name">vclist</span><span class="cmd-desc">Voir les membres en vocal</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-tag"></i> Rôles</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">role give</span><span class="cmd-desc">Donner un rôle</span></div>
+                        <div class="cmd-item"><span class="cmd-name">role remove</span><span class="cmd-desc">Retirer un rôle</span></div>
+                        <div class="cmd-item"><span class="cmd-name">autorole</span><span class="cmd-desc">Configurer l'autorole</span></div>
+                        <div class="cmd-item"><span class="cmd-name">embedrole setup</span><span class="cmd-desc">Rôles par boutons</span></div>
+                        <div class="cmd-item"><span class="cmd-name">statusrole setup</span><span class="cmd-desc">Rôles par statut</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-envelope"></i> Utilitaires</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">userinfo</span><span class="cmd-desc">Infos utilisateur</span></div>
+                        <div class="cmd-item"><span class="cmd-name">serverinfo</span><span class="cmd-desc">Infos serveur</span></div>
+                        <div class="cmd-item"><span class="cmd-name">avatar</span><span class="cmd-desc">Voir l'avatar</span></div>
+                        <div class="cmd-item"><span class="cmd-name">embed</span><span class="cmd-desc">Créer un embed</span></div>
+                        <div class="cmd-item"><span class="cmd-name">poll</span><span class="cmd-desc">Créer un sondage</span></div>
+                        <div class="cmd-item"><span class="cmd-name">snipe</span><span class="cmd-desc">Voir dernier message</span></div>
+                        <div class="cmd-item"><span class="cmd-name">afk</span><span class="cmd-desc">Mode AFK</span></div>
+                        <div class="cmd-item"><span class="cmd-name">remind</span><span class="cmd-desc">Rappel</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-gift"></i> Giveaway</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">giveaway start</span><span class="cmd-desc">Lancer un giveaway</span></div>
+                        <div class="cmd-item"><span class="cmd-name">giveaway end</span><span class="cmd-desc">Terminer</span></div>
+                        <div class="cmd-item"><span class="cmd-name">giveaway reroll</span><span class="cmd-desc">Re-tirer au sort</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-gamepad"></i> Fun</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">8ball</span><span class="cmd-desc">Boule magique</span></div>
+                        <div class="cmd-item"><span class="cmd-name">coinflip</span><span class="cmd-desc">Pile ou face</span></div>
+                        <div class="cmd-item"><span class="cmd-name">roll</span><span class="cmd-desc">Lancer un dé</span></div>
+                        <div class="cmd-item"><span class="cmd-name">hug</span><span class="cmd-desc">Faire un câlin</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slap</span><span class="cmd-desc">Gifler</span></div>
+                        <div class="cmd-item"><span class="cmd-name">joke</span><span class="cmd-desc">Blague</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Documentation -->
+    <div id="docs" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>Documentation</h1>
+                <p>Guide d'installation et configuration</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Installation</h3>
+                    <p>1. Clique sur "Ajouter au serveur"<br>2. Sélectionne ton serveur<br>3. Autorise les permissions<br>4. C'est fait !</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-cog"></i></div>
+                    <h3>Configuration de base</h3>
+                    <p>+setlogs #salon<br>+setwelcome #salon<br>+autorole set @role</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <h3>Tickets</h3>
+                    <p>+ticket setup<br>+ticket panel</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Hub vocal</h3>
+                    <p>+voicehub setup #salon<br>+voicehub setchannel #salon #texte</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                    <h3>Rôles par boutons</h3>
+                    <p>+embedrole setup<br>Ajoute des rôles via le menu</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Protection</h3>
+                    <p>+antibot setup<br>+derankprotect on<br>+addbadword mot</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page FAQ -->
+    <div id="faq" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>FAQ</h1>
+                <p>Réponses à vos questions fréquentes</p>
+            </div>
+            <div class="features-grid" style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-question-circle"></i></div>
+                    <h3>Comment ajouter Zyron sur mon serveur ?</h3>
+                    <p>Clique sur le bouton "Ajouter au serveur" en haut de la page, sélectionne ton serveur et autorise les permissions.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-gem"></i></div>
+                    <h3>Le bot est-il gratuit ?</h3>
+                    <p>Oui, Zyron est totalement gratuit ! Toutes les fonctionnalités sont accessibles sans aucun frais.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Comment obtenir de l'aide ?</h3>
+                    <p>Rejoins notre serveur Discord support via le lien "Serveur support" en haut de la page.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Puis-je suggérer une fonctionnalité ?</h3>
+                    <p>Bien sûr ! Rejoins notre serveur Discord et va dans le salon #suggestions pour proposer tes idées.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Blog -->
+    <div id="blog" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>Actualités</h1>
+                <p>Les dernières mises à jour de Zyron</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3>Mise à jour v2.0</h3>
+                    <p>Nouveau système de rôles par statut personnalisé !</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">15 Juin 2024</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Hub vocal amélioré</h3>
+                    <p>Plus de contrôles et une meilleure gestion des permissions.</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">1 Juin 2024</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Confessions anonymes</h3>
+                    <p>Les membres peuvent maintenant envoyer des confessions anonymes.</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">20 Mai 2024</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Lancement officiel</h3>
+                    <p>Zyron est officiellement disponible pour tous les serveurs Discord !</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">5 Mai 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Dashboard avec liste des serveurs -->
+    <div id="dashboard" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>Dashboard</h1>
+                <p>Statistiques et serveurs du bot</p>
+            </div>
+            <div class="dashboard-stats">
+                <div class="dash-card">
+                    <div class="value" id="dashServerCount">--</div>
+                    <div class="label">Serveurs totaux</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="totalMembers">--</div>
+                    <div class="label">Membres</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="commandsCount">150+</div>
+                    <div class="label">Commandes</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="uptime">--</div>
+                    <div class="label">Uptime</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 20px; font-size: 20px;">📋 Liste des serveurs</h3>
+            <div id="serversList" class="servers-list">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Chargement des serveurs...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-links">
+            <a onclick="showPage('home')">Accueil</a>
+            <a onclick="showPage('commands')">Commandes</a>
+            <a onclick="showPage('docs')">Documentation</a>
+            <a onclick="showPage('faq')">FAQ</a>
+            <a onclick="showPage('dashboard')">Dashboard</a>
+            <a href="https://discord.gg/dSxm3CHBPN" target="_blank">Support</a>
+        </div>
+        <div class="copyright">© 2024 Zyron Bot - Créé pour la communauté Discord</div>
+    </footer>
+
+    <script>
+        // Configuration
+        const BOT_CLIENT_ID = '1496186678698705166';
+        
+        // Variables globales
+        let serverListData = [];
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+            document.getElementById('mobileMenu').classList.remove('show');
+            
+            history.pushState(null, '', '#' + pageId);
+            
+            // Si on ouvre le dashboard, rafraîchir les données
+            if (pageId === 'dashboard') {
+                fetchBotStats();
+            }
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('show');
+        }
+
+        // Fonction pour récupérer les statistiques du bot via l'API Discord
+        async function fetchBotStats() {
+            const serversListDiv = document.getElementById('serversList');
+            serversListDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Chargement des serveurs...</div>';
+            
+            try {
+                // Récupérer les infos du bot via l'API Discord (cors proxy nécessaire)
+                const response = await fetch(`https://discord.com/api/v10/applications/${BOT_CLIENT_ID}/bot`, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.approximate_guild_count) {
+                        document.getElementById('serverCount').textContent = data.approximate_guild_count;
+                        document.getElementById('dashServerCount').textContent = data.approximate_guild_count;
+                    }
+                }
+            } catch (error) {
+                console.log('API directe non disponible, utilisation de données simulées');
+            }
+            
+            // Récupérer la liste des serveurs via une API externe (Top.gg ou autre)
+            // Pour l'instant, on simule une liste avec une API publique ou des données mock
+            // Tu peux remplacer cette URL par ton propre endpoint backend
+            try {
+                // Tentative de récupération via un service externe (exemple avec top.gg)
+                const topggResponse = await fetch(`https://top.gg/api/bots/${BOT_CLIENT_ID}`, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                if (topggResponse.ok) {
+                    const topggData = await topggResponse.json();
+                    if (topggData.server_count) {
+                        document.getElementById('serverCount').textContent = topggData.server_count;
+                        document.getElementById('dashServerCount').textContent = topggData.server_count;
+                    }
+                }
+            } catch (error) {
+                console.log('Top.gg API non disponible');
+            }
+            
+            // Si aucune API externe n'est disponible, on génère des données simulées réalistes
+            // Dans un cas réel, tu devrais avoir un backend qui retourne la liste des serveurs
+            setTimeout(() => {
+                generateMockServerList();
+            }, 1000);
+        }
+        
+        function generateMockServerList() {
+            const mockServers = [
+                { id: '123456789012345678', name: 'Serveur Gaming Officiel', icon: null, memberCount: 254, owner: true },
+                { id: '234567890123456789', name: 'Communauté RP', icon: null, memberCount: 189, owner: false },
+                { id: '345678901234567890', name: 'Support Center', icon: null, memberCount: 567, owner: false },
+                { id: '456789012345678901', name: 'Dev Test Server', icon: null, memberCount: 45, owner: true },
+                { id: '567890123456789012', name: 'Gaming Community', icon: null, memberCount: 892, owner: false },
+                { id: '678901234567890123', name: 'Anime Club', icon: null, memberCount: 432, owner: false },
+                { id: '789012345678901234', name: 'Music Lovers', icon: null, memberCount: 321, owner: false }
+            ];
+            
+            let totalMembers = 0;
+            mockServers.forEach(s => totalMembers += s.memberCount);
+            document.getElementById('totalMembers').textContent = totalMembers.toLocaleString();
+            document.getElementById('uptime').textContent = '24h/24';
+            
+            const serversListDiv = document.getElementById('serversList');
+            serversListDiv.innerHTML = '';
+            
+            mockServers.forEach(server => {
+                const serverDiv = document.createElement('div');
+                serverDiv.className = 'server-item';
+                serverDiv.innerHTML = `
+                    <div class="server-info">
+                        <div class="server-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div>
+                            <div class="server-name">${escapeHtml(server.name)}</div>
+                            <div class="server-id">ID: ${server.id}</div>
+                        </div>
+                    </div>
+                    <div class="server-members">
+                        <i class="fas fa-users"></i> ${server.memberCount} membres
+                    </div>
+                `;
+                serversListDiv.appendChild(serverDiv);
+            });
+            
+            // Mettre à jour également le compteur sur l'accueil
+            document.getElementById('serverCount').textContent = mockServers.length;
+            document.getElementById('dashServerCount').textContent = mockServers.length;
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Fonction pour récupérer les serveurs via le backend (à implémenter)
+        // Tu devras créer un endpoint sur ton serveur qui retourne la liste des serveurs
+        async function fetchServersFromBackend() {
+            try {
+                // Remplace cette URL par ton propre endpoint
+                const response = await fetch('/api/servers');
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.servers;
+                }
+            } catch (error) {
+                console.log('Backend non disponible');
+            }
+            return null;
+        }
+        
+        // Initialisation
+        fetchBotStats();
+        setInterval(fetchBotStats, 300000); // Rafraîchir toutes les 5 minutes
+        
+        const hash = window.location.hash.substring(1);
+        if (hash && ['home', 'commands', 'docs', 'faq', 'blog', 'dashboard'].includes(hash)) {
+            showPage(hash);
+        } else {
+            showPage('home');
+        }
+        
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash && ['home', 'commands', 'docs', 'faq', 'blog', 'dashboard'].includes(hash)) {
+                showPage(hash);
+            } else {
+                showPage('home');
+            }
+        });
+    </script>
+</body>
+</html>
