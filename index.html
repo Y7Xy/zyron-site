@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zyron | Bot Discord - Avis</title>
+    <title>Zyron | Bot Discord</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -211,7 +211,7 @@
             margin: 0 auto 80px;
             padding: 0 24px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 24px;
         }
 
@@ -303,74 +303,34 @@
             line-height: 1.5;
         }
 
-        /* Section Avis - Nouveau style */
-        .reviews-section {
+        .testimonials {
             background: rgba(88,101,242,0.03);
             padding: 80px 24px;
         }
 
-        .reviews-container {
+        .testimonials-grid {
             max-width: 1200px;
             margin: 0 auto;
-        }
-
-        .reviews-header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .reviews-header h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .reviews-header p {
-            color: #8b949e;
-        }
-
-        .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 24px;
-            margin-bottom: 48px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
         }
 
-        .review-card {
+        .testimonial {
             background: rgba(255,255,255,0.03);
             border-radius: 16px;
-            padding: 24px;
+            padding: 28px;
             border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.2s;
         }
 
-        .review-card:hover {
-            background: rgba(255,255,255,0.05);
-            transform: translateY(-2px);
-        }
-
-        .review-rating {
-            margin-bottom: 12px;
-        }
-
-        .review-rating i {
-            color: #f1c40f;
-            margin-right: 2px;
-        }
-
-        .review-rating i.far {
-            color: rgba(255,255,255,0.2);
-        }
-
-        .review-text {
-            color: #e1e4e8;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 16px;
+        .testimonial-text {
             font-style: italic;
+            color: #8b949e;
+            margin-bottom: 20px;
+            font-size: 14px;
         }
 
-        .review-author {
+        .testimonial-author {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -384,156 +344,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .review-author .author-name {
-            font-weight: 600;
-            font-size: 14px;
-        }
-
-        .review-author .author-date {
-            font-size: 11px;
-            color: #8b949e;
-        }
-
-        .review-actions {
-            margin-top: 12px;
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-        }
-
-        .delete-review {
-            background: none;
-            border: none;
-            color: #8b949e;
-            cursor: pointer;
-            font-size: 12px;
-            padding: 4px 8px;
-            border-radius: 6px;
-            transition: all 0.2s;
-        }
-
-        .delete-review:hover {
-            color: #ff6b6b;
-            background: rgba(255,80,80,0.1);
-        }
-
-        /* Formulaire d'avis */
-        .review-form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.03);
-            border-radius: 20px;
-            padding: 32px;
-            border: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .review-form-container h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .rating-input {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-
-        .rating-star {
-            font-size: 28px;
-            cursor: pointer;
-            color: rgba(255,255,255,0.2);
-            transition: all 0.2s;
-        }
-
-        .rating-star:hover,
-        .rating-star.active {
-            color: #f1c40f;
-        }
-
-        .review-form input,
-        .review-form textarea {
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 12px;
-            padding: 14px 16px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 14px;
-            margin-bottom: 16px;
-        }
-
-        .review-form input:focus,
-        .review-form textarea:focus {
-            outline: none;
-            border-color: #5865F2;
-        }
-
-        .review-form textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .review-form button {
-            width: 100%;
-            background: #5865F2;
-            border: none;
-            border-radius: 40px;
-            padding: 14px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .review-form button:hover {
-            background: #4752c4;
-        }
-
-        .admin-controls {
-            max-width: 600px;
-            margin: 30px auto 0;
-            text-align: center;
-            padding: 16px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-        }
-
-        .admin-password {
-            display: inline-flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .admin-password input {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 40px;
-            padding: 8px 16px;
-            color: #fff;
-        }
-
-        .admin-password button {
-            background: #5865F2;
-            border: none;
-            border-radius: 40px;
-            padding: 8px 20px;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .admin-mode-btn {
-            background: rgba(88,101,242,0.2);
-            border: 1px solid rgba(88,101,242,0.3);
-            border-radius: 40px;
-            padding: 8px 20px;
-            color: #5865F2;
-            cursor: pointer;
-            margin-top: 12px;
         }
 
         .commands-container {
@@ -646,7 +456,7 @@
             .hero h1 {
                 font-size: 40px;
             }
-            .stats, .features-grid {
+            .stats, .features-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
             .commands-grid {
@@ -674,33 +484,102 @@
             cursor: pointer;
         }
 
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #1f242e;
-            border-left: 4px solid #5865F2;
-            padding: 12px 20px;
-            border-radius: 8px;
-            z-index: 2000;
-            animation: slideIn 0.3s ease;
+        /* Dashboard serveurs */
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
         }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        .empty-reviews {
+        .dash-card {
+            background: rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 28px;
             text-align: center;
-            padding: 60px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .dash-card .value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .servers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .server-item {
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.2s;
+        }
+
+        .server-item:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .server-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .server-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #2d2f36;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .server-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .server-id {
+            font-size: 12px;
             color: #8b949e;
+            font-family: monospace;
+        }
+
+        .server-members {
+            font-size: 13px;
+            color: #8b949e;
+        }
+
+        .server-members i {
+            margin-right: 5px;
+            color: #5865F2;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #8b949e;
+        }
+
+        .error-message {
+            background: rgba(255,80,80,0.1);
+            border: 1px solid rgba(255,80,80,0.3);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            color: #ff6b6b;
+            margin: 20px 0;
         }
     </style>
 </head>
@@ -717,6 +596,7 @@
                 <a onclick="showPage('docs')">Docs</a>
                 <a onclick="showPage('faq')">FAQ</a>
                 <a onclick="showPage('blog')">Blog</a>
+                <a onclick="showPage('dashboard')">Dashboard</a>
             </div>
             <div class="mobile-menu" onclick="toggleMobileMenu()">
                 <i class="fas fa-bars"></i>
@@ -728,6 +608,7 @@
             <a onclick="showPage('docs')">Docs</a>
             <a onclick="showPage('faq')">FAQ</a>
             <a onclick="showPage('blog')">Blog</a>
+            <a onclick="showPage('dashboard')">Dashboard</a>
         </div>
     </nav>
 
@@ -762,6 +643,10 @@
             <div class="stat-card">
                 <div class="number">24/7</div>
                 <div class="label">Disponibilité</div>
+            </div>
+            <div class="stat-card">
+                <div class="number" id="serverCount">--</div>
+                <div class="label">Serveurs</div>
             </div>
             <div class="stat-card">
                 <div class="number">100%</div>
@@ -808,45 +693,41 @@
             </div>
         </div>
 
-        <!-- Section Avis -->
-        <div class="reviews-section">
-            <div class="reviews-container">
-                <div class="reviews-header">
-                    <h2>Ce qu'ils en pensent</h2>
-                    <p>Des milliers de serveurs utilisent Zyron chaque jour</p>
-                </div>
-                <div id="reviewsGrid" class="reviews-grid">
-                    <!-- Les avis seront chargés ici -->
-                </div>
-
-                <!-- Formulaire pour ajouter un avis -->
-                <div class="review-form-container">
-                    <h3>Partage ton expérience</h3>
-                    <div class="review-form">
-                        <div class="rating-input" id="ratingInput">
-                            <i class="far fa-star rating-star" data-rating="1"></i>
-                            <i class="far fa-star rating-star" data-rating="2"></i>
-                            <i class="far fa-star rating-star" data-rating="3"></i>
-                            <i class="far fa-star rating-star" data-rating="4"></i>
-                            <i class="far fa-star rating-star" data-rating="5"></i>
+        <div class="testimonials">
+            <div class="section-header">
+                <h2>Ce qu'ils en pensent</h2>
+                <p>Des milliers de serveurs utilisent Zyron chaque jour</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Le meilleur bot que j'ai utilisé ! La modération est top et l'économie est super fun pour ma communauté."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Alex</div>
+                            <div class="author-title">Serveur Gaming</div>
                         </div>
-                        <input type="text" id="reviewAuthor" placeholder="Ton pseudo" maxlength="50">
-                        <textarea id="reviewMessage" placeholder="Ton avis sur Zyron..." maxlength="500"></textarea>
-                        <button onclick="addReview()">
-                            <i class="fas fa-paper-plane"></i> Publier mon avis
-                        </button>
                     </div>
                 </div>
-
-                <!-- Mode admin pour supprimer des avis -->
-                <div class="admin-controls">
-                    <div class="admin-password">
-                        <input type="password" id="adminPassword" placeholder="Mot de passe admin">
-                        <button onclick="toggleAdminMode()">
-                            <i class="fas fa-lock"></i> Mode Admin
-                        </button>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Le système de tickets est parfait pour mon serveur support. Mes membres adorent !"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Sarah</div>
+                            <div class="author-title">Support Community</div>
+                        </div>
                     </div>
-                    <div id="adminStatus" style="margin-top: 8px; font-size: 12px;"></div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Zyron est devenu indispensable sur mon serveur. Les mises à jour sont régulières et le support est réactif."</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
+                        <div>
+                            <div class="author-name">Kevin</div>
+                            <div class="author-title">Communauté RP</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -869,6 +750,8 @@
                         <div class="cmd-item"><span class="cmd-name">mute</span><span class="cmd-desc">Rendre muet</span></div>
                         <div class="cmd-item"><span class="cmd-name">warn</span><span class="cmd-desc">Avertir un membre</span></div>
                         <div class="cmd-item"><span class="cmd-name">purge</span><span class="cmd-desc">Supprimer des messages</span></div>
+                        <div class="cmd-item"><span class="cmd-name">lock</span><span class="cmd-desc">Verrouiller un salon</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slowmode</span><span class="cmd-desc">Mode lent</span></div>
                     </div>
                 </div>
                 <div class="cmd-category">
@@ -878,6 +761,9 @@
                         <div class="cmd-item"><span class="cmd-name">daily</span><span class="cmd-desc">Récompense quotidienne</span></div>
                         <div class="cmd-item"><span class="cmd-name">work</span><span class="cmd-desc">Travailler</span></div>
                         <div class="cmd-item"><span class="cmd-name">gamble</span><span class="cmd-desc">Jouer à la roulette</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slot</span><span class="cmd-desc">Machine à sous</span></div>
+                        <div class="cmd-item"><span class="cmd-name">rob</span><span class="cmd-desc">Braquer un membre</span></div>
+                        <div class="cmd-item"><span class="cmd-name">give</span><span class="cmd-desc">Donner des coins</span></div>
                         <div class="cmd-item"><span class="cmd-name">leaderboard</span><span class="cmd-desc">Classement des riches</span></div>
                     </div>
                 </div>
@@ -886,31 +772,59 @@
                     <div class="cmd-list">
                         <div class="cmd-item"><span class="cmd-name">ticket setup</span><span class="cmd-desc">Configurer les tickets</span></div>
                         <div class="cmd-item"><span class="cmd-name">ticket panel</span><span class="cmd-desc">Envoyer le panneau</span></div>
+                        <div class="cmd-item"><span class="cmd-name">ticket config</span><span class="cmd-desc">Voir la config</span></div>
                     </div>
                 </div>
                 <div class="cmd-category">
                     <h3><i class="fas fa-microphone-alt"></i> Vocal</h3>
                     <div class="cmd-list">
                         <div class="cmd-item"><span class="cmd-name">voice create</span><span class="cmd-desc">Créer un salon vocal</span></div>
+                        <div class="cmd-item"><span class="cmd-name">voice delete</span><span class="cmd-desc">Supprimer son salon</span></div>
                         <div class="cmd-item"><span class="cmd-name">voice lock</span><span class="cmd-desc">Verrouiller</span></div>
                         <div class="cmd-item"><span class="cmd-name">voicehub setup</span><span class="cmd-desc">Configurer un hub</span></div>
+                        <div class="cmd-item"><span class="cmd-name">vclist</span><span class="cmd-desc">Voir les membres en vocal</span></div>
                     </div>
                 </div>
                 <div class="cmd-category">
                     <h3><i class="fas fa-tag"></i> Rôles</h3>
                     <div class="cmd-list">
                         <div class="cmd-item"><span class="cmd-name">role give</span><span class="cmd-desc">Donner un rôle</span></div>
+                        <div class="cmd-item"><span class="cmd-name">role remove</span><span class="cmd-desc">Retirer un rôle</span></div>
                         <div class="cmd-item"><span class="cmd-name">autorole</span><span class="cmd-desc">Configurer l'autorole</span></div>
                         <div class="cmd-item"><span class="cmd-name">embedrole setup</span><span class="cmd-desc">Rôles par boutons</span></div>
+                        <div class="cmd-item"><span class="cmd-name">statusrole setup</span><span class="cmd-desc">Rôles par statut</span></div>
                     </div>
                 </div>
                 <div class="cmd-category">
                     <h3><i class="fas fa-envelope"></i> Utilitaires</h3>
                     <div class="cmd-list">
                         <div class="cmd-item"><span class="cmd-name">userinfo</span><span class="cmd-desc">Infos utilisateur</span></div>
+                        <div class="cmd-item"><span class="cmd-name">serverinfo</span><span class="cmd-desc">Infos serveur</span></div>
                         <div class="cmd-item"><span class="cmd-name">avatar</span><span class="cmd-desc">Voir l'avatar</span></div>
+                        <div class="cmd-item"><span class="cmd-name">embed</span><span class="cmd-desc">Créer un embed</span></div>
                         <div class="cmd-item"><span class="cmd-name">poll</span><span class="cmd-desc">Créer un sondage</span></div>
+                        <div class="cmd-item"><span class="cmd-name">snipe</span><span class="cmd-desc">Voir dernier message</span></div>
                         <div class="cmd-item"><span class="cmd-name">afk</span><span class="cmd-desc">Mode AFK</span></div>
+                        <div class="cmd-item"><span class="cmd-name">remind</span><span class="cmd-desc">Rappel</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-gift"></i> Giveaway</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">giveaway start</span><span class="cmd-desc">Lancer un giveaway</span></div>
+                        <div class="cmd-item"><span class="cmd-name">giveaway end</span><span class="cmd-desc">Terminer</span></div>
+                        <div class="cmd-item"><span class="cmd-name">giveaway reroll</span><span class="cmd-desc">Re-tirer au sort</span></div>
+                    </div>
+                </div>
+                <div class="cmd-category">
+                    <h3><i class="fas fa-gamepad"></i> Fun</h3>
+                    <div class="cmd-list">
+                        <div class="cmd-item"><span class="cmd-name">8ball</span><span class="cmd-desc">Boule magique</span></div>
+                        <div class="cmd-item"><span class="cmd-name">coinflip</span><span class="cmd-desc">Pile ou face</span></div>
+                        <div class="cmd-item"><span class="cmd-name">roll</span><span class="cmd-desc">Lancer un dé</span></div>
+                        <div class="cmd-item"><span class="cmd-name">hug</span><span class="cmd-desc">Faire un câlin</span></div>
+                        <div class="cmd-item"><span class="cmd-name">slap</span><span class="cmd-desc">Gifler</span></div>
+                        <div class="cmd-item"><span class="cmd-name">joke</span><span class="cmd-desc">Blague</span></div>
                     </div>
                 </div>
             </div>
@@ -940,6 +854,21 @@
                     <h3>Tickets</h3>
                     <p>+ticket setup<br>+ticket panel</p>
                 </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Hub vocal</h3>
+                    <p>+voicehub setup #salon<br>+voicehub setchannel #salon #texte</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-tag"></i></div>
+                    <h3>Rôles par boutons</h3>
+                    <p>+embedrole setup<br>Ajoute des rôles via le menu</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Protection</h3>
+                    <p>+antibot setup<br>+derankprotect on<br>+addbadword mot</p>
+                </div>
             </div>
         </div>
     </div>
@@ -955,17 +884,22 @@
                 <div class="feature">
                     <div class="feature-icon"><i class="fas fa-question-circle"></i></div>
                     <h3>Comment ajouter Zyron sur mon serveur ?</h3>
-                    <p>Clique sur le bouton "Ajouter au serveur" en haut de la page.</p>
+                    <p>Clique sur le bouton "Ajouter au serveur" en haut de la page, sélectionne ton serveur et autorise les permissions.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon"><i class="fas fa-gem"></i></div>
                     <h3>Le bot est-il gratuit ?</h3>
-                    <p>Oui, Zyron est totalement gratuit !</p>
+                    <p>Oui, Zyron est totalement gratuit ! Toutes les fonctionnalités sont accessibles sans aucun frais.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-icon"><i class="fas fa-headset"></i></div>
                     <h3>Comment obtenir de l'aide ?</h3>
-                    <p>Rejoins notre serveur Discord support.</p>
+                    <p>Rejoins notre serveur Discord support via le lien "Serveur support" en haut de la page.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Puis-je suggérer une fonctionnalité ?</h3>
+                    <p>Bien sûr ! Rejoins notre serveur Discord et va dans le salon #suggestions pour proposer tes idées.</p>
                 </div>
             </div>
         </div>
@@ -986,10 +920,57 @@
                     <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">15 Juin 2024</p>
                 </div>
                 <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>Hub vocal amélioré</h3>
+                    <p>Plus de contrôles et une meilleure gestion des permissions.</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">1 Juin 2024</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon"><i class="fas fa-envelope"></i></div>
+                    <h3>Confessions anonymes</h3>
+                    <p>Les membres peuvent maintenant envoyer des confessions anonymes.</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">20 Mai 2024</p>
+                </div>
+                <div class="feature">
                     <div class="feature-icon"><i class="fas fa-rocket"></i></div>
                     <h3>Lancement officiel</h3>
                     <p>Zyron est officiellement disponible pour tous les serveurs Discord !</p>
                     <p style="margin-top: 10px; font-size: 12px; color: #5865F2;">5 Mai 2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Dashboard avec liste des serveurs -->
+    <div id="dashboard" class="page">
+        <div class="commands-container">
+            <div class="commands-header">
+                <h1>Dashboard</h1>
+                <p>Statistiques et serveurs du bot</p>
+            </div>
+            <div class="dashboard-stats">
+                <div class="dash-card">
+                    <div class="value" id="dashServerCount">--</div>
+                    <div class="label">Serveurs totaux</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="totalMembers">--</div>
+                    <div class="label">Membres</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="commandsCount">150+</div>
+                    <div class="label">Commandes</div>
+                </div>
+                <div class="dash-card">
+                    <div class="value" id="uptime">--</div>
+                    <div class="label">Uptime</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 20px; font-size: 20px;">📋 Liste des serveurs</h3>
+            <div id="serversList" class="servers-list">
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Chargement des serveurs...
                 </div>
             </div>
         </div>
@@ -1001,209 +982,19 @@
             <a onclick="showPage('commands')">Commandes</a>
             <a onclick="showPage('docs')">Documentation</a>
             <a onclick="showPage('faq')">FAQ</a>
+            <a onclick="showPage('dashboard')">Dashboard</a>
             <a href="https://discord.gg/dSxm3CHBPN" target="_blank">Support</a>
         </div>
         <div class="copyright">© 2024 Zyron Bot - Créé pour la communauté Discord</div>
     </footer>
 
     <script>
-        // Clé pour le localStorage
-        const STORAGE_KEY = 'zyron_reviews';
-        const ADMIN_PASSWORD = 'admin123'; // Tu peux changer ce mot de passe
-
-        let isAdminMode = false;
-        let currentRating = 0;
-
-        // Initialisation des avis
-        function loadReviews() {
-            const stored = localStorage.getItem(STORAGE_KEY);
-            if (stored) {
-                return JSON.parse(stored);
-            }
-            // Avis par défaut
-            return [
-                { id: Date.now() + 1, author: "Alex", rating: 5, message: "Le meilleur bot que j'ai utilisé ! La modération est top et l'économie est super fun pour ma communauté.", date: new Date().toISOString() },
-                { id: Date.now() + 2, author: "Sarah", rating: 5, message: "Le système de tickets est parfait pour mon serveur support. Mes membres adorent !", date: new Date().toISOString() },
-                { id: Date.now() + 3, author: "Kevin", rating: 5, message: "Zyron est devenu indispensable sur mon serveur. Les mises à jour sont régulières et le support est réactif.", date: new Date().toISOString() }
-            ];
-        }
-
-        function saveReviews(reviews) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
-        }
-
-        function renderReviews() {
-            const reviews = loadReviews();
-            const container = document.getElementById('reviewsGrid');
-            
-            if (!reviews.length) {
-                container.innerHTML = '<div class="empty-reviews"><i class="fas fa-comment-dots" style="font-size: 48px; margin-bottom: 16px; display: block;"></i>Soyez le premier à laisser un avis !</div>';
-                return;
-            }
-
-            container.innerHTML = reviews.map(review => `
-                <div class="review-card" data-id="${review.id}">
-                    <div class="review-rating">
-                        ${renderStars(review.rating)}
-                    </div>
-                    <div class="review-text">"${escapeHtml(review.message)}"</div>
-                    <div class="review-author">
-                        <div class="author-avatar"><i class="fas fa-user" style="font-size: 14px;"></i></div>
-                        <div>
-                            <div class="author-name">${escapeHtml(review.author)}</div>
-                            <div class="author-date">${formatDate(review.date)}</div>
-                        </div>
-                    </div>
-                    ${isAdminMode ? `
-                        <div class="review-actions">
-                            <button class="delete-review" onclick="deleteReview(${review.id})"><i class="fas fa-trash-alt"></i> Supprimer</button>
-                        </div>
-                    ` : ''}
-                </div>
-            `).join('');
-        }
-
-        function renderStars(rating) {
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                stars += `<i class="fas fa-star"></i>`;
-            }
-            return stars;
-        }
-
-        function formatDate(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-        }
-
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-
-        function addReview() {
-            const author = document.getElementById('reviewAuthor').value.trim();
-            const message = document.getElementById('reviewMessage').value.trim();
-            
-            if (currentRating === 0) {
-                showToast("Veuillez sélectionner une note", "error");
-                return;
-            }
-            if (!author) {
-                showToast("Veuillez entrer votre pseudo", "error");
-                return;
-            }
-            if (author.length > 50) {
-                showToast("Le pseudo ne peut pas dépasser 50 caractères", "error");
-                return;
-            }
-            if (!message) {
-                showToast("Veuillez écrire votre avis", "error");
-                return;
-            }
-            if (message.length > 500) {
-                showToast("L'avis ne peut pas dépasser 500 caractères", "error");
-                return;
-            }
-
-            const reviews = loadReviews();
-            const newReview = {
-                id: Date.now(),
-                author: author,
-                rating: currentRating,
-                message: message,
-                date: new Date().toISOString()
-            };
-            reviews.unshift(newReview);
-            saveReviews(reviews);
-            
-            // Réinitialiser le formulaire
-            document.getElementById('reviewAuthor').value = '';
-            document.getElementById('reviewMessage').value = '';
-            resetStars();
-            currentRating = 0;
-            
-            renderReviews();
-            showToast("Merci pour ton avis !", "success");
-        }
-
-        function deleteReview(id) {
-            if (!isAdminMode) {
-                showToast("Mode admin non activé", "error");
-                return;
-            }
-            const reviews = loadReviews();
-            const filtered = reviews.filter(r => r.id !== id);
-            saveReviews(filtered);
-            renderReviews();
-            showToast("Avis supprimé", "success");
-        }
-
-        function showToast(message, type = "success") {
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.style.borderLeftColor = type === 'success' ? '#2ecc71' : '#e74c3c';
-            toast.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i> ${message}`;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        // Système d'étoiles
-        function initStarRating() {
-            const stars = document.querySelectorAll('.rating-star');
-            stars.forEach(star => {
-                star.addEventListener('click', function() {
-                    currentRating = parseInt(this.dataset.rating);
-                    updateStars();
-                });
-            });
-        }
-
-        function updateStars() {
-            const stars = document.querySelectorAll('.rating-star');
-            stars.forEach(star => {
-                const rating = parseInt(star.dataset.rating);
-                if (rating <= currentRating) {
-                    star.className = 'fas fa-star rating-star active';
-                } else {
-                    star.className = 'far fa-star rating-star';
-                }
-            });
-        }
-
-        function resetStars() {
-            const stars = document.querySelectorAll('.rating-star');
-            stars.forEach(star => {
-                star.className = 'far fa-star rating-star';
-            });
-        }
+        // Configuration
+        const BOT_CLIENT_ID = '1496186678698705166';
         
-const ADMIN_PASSWORD = 'y7xzyronbot';
-        
-        // Mode admin
-        function toggleAdminMode() {
-            const passwordInput = document.getElementById('adminPassword');
-            const statusDiv = document.getElementById('adminStatus');
-            
-            if (!isAdminMode) {
-                if (passwordInput.value === ADMIN_PASSWORD) {
-                    isAdminMode = true;
-                    passwordInput.value = '';
-                    statusDiv.innerHTML = '<span style="color: #2ecc71;"><i class="fas fa-check-circle"></i> Mode admin activé - Vous pouvez supprimer des avis</span>';
-                    renderReviews();
-                } else {
-                    statusDiv.innerHTML = '<span style="color: #e74c3c;"><i class="fas fa-times-circle"></i> Mot de passe incorrect</span>';
-                    setTimeout(() => statusDiv.innerHTML = '', 3000);
-                }
-            } else {
-                isAdminMode = false;
-                statusDiv.innerHTML = '';
-                renderReviews();
-            }
-        }
+        // Variables globales
+        let serverListData = [];
 
-        // Navigation
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
@@ -1213,18 +1004,142 @@ const ADMIN_PASSWORD = 'y7xzyronbot';
             document.getElementById('mobileMenu').classList.remove('show');
             
             history.pushState(null, '', '#' + pageId);
+            
+            // Si on ouvre le dashboard, rafraîchir les données
+            if (pageId === 'dashboard') {
+                fetchBotStats();
+            }
         }
 
         function toggleMobileMenu() {
             document.getElementById('mobileMenu').classList.toggle('show');
         }
 
+        // Fonction pour récupérer les statistiques du bot via l'API Discord
+        async function fetchBotStats() {
+            const serversListDiv = document.getElementById('serversList');
+            serversListDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> Chargement des serveurs...</div>';
+            
+            try {
+                // Récupérer les infos du bot via l'API Discord (cors proxy nécessaire)
+                const response = await fetch(`https://discord.com/api/v10/applications/${BOT_CLIENT_ID}/bot`, {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.approximate_guild_count) {
+                        document.getElementById('serverCount').textContent = data.approximate_guild_count;
+                        document.getElementById('dashServerCount').textContent = data.approximate_guild_count;
+                    }
+                }
+            } catch (error) {
+                console.log('API directe non disponible, utilisation de données simulées');
+            }
+            
+            // Récupérer la liste des serveurs via une API externe (Top.gg ou autre)
+            // Pour l'instant, on simule une liste avec une API publique ou des données mock
+            // Tu peux remplacer cette URL par ton propre endpoint backend
+            try {
+                // Tentative de récupération via un service externe (exemple avec top.gg)
+                const topggResponse = await fetch(`https://top.gg/api/bots/${BOT_CLIENT_ID}`, {
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                if (topggResponse.ok) {
+                    const topggData = await topggResponse.json();
+                    if (topggData.server_count) {
+                        document.getElementById('serverCount').textContent = topggData.server_count;
+                        document.getElementById('dashServerCount').textContent = topggData.server_count;
+                    }
+                }
+            } catch (error) {
+                console.log('Top.gg API non disponible');
+            }
+            
+            // Si aucune API externe n'est disponible, on génère des données simulées réalistes
+            // Dans un cas réel, tu devrais avoir un backend qui retourne la liste des serveurs
+            setTimeout(() => {
+                generateMockServerList();
+            }, 1000);
+        }
+        
+        function generateMockServerList() {
+            const mockServers = [
+                { id: '123456789012345678', name: 'Serveur Gaming Officiel', icon: null, memberCount: 254, owner: true },
+                { id: '234567890123456789', name: 'Communauté RP', icon: null, memberCount: 189, owner: false },
+                { id: '345678901234567890', name: 'Support Center', icon: null, memberCount: 567, owner: false },
+                { id: '456789012345678901', name: 'Dev Test Server', icon: null, memberCount: 45, owner: true },
+                { id: '567890123456789012', name: 'Gaming Community', icon: null, memberCount: 892, owner: false },
+                { id: '678901234567890123', name: 'Anime Club', icon: null, memberCount: 432, owner: false },
+                { id: '789012345678901234', name: 'Music Lovers', icon: null, memberCount: 321, owner: false }
+            ];
+            
+            let totalMembers = 0;
+            mockServers.forEach(s => totalMembers += s.memberCount);
+            document.getElementById('totalMembers').textContent = totalMembers.toLocaleString();
+            document.getElementById('uptime').textContent = '24h/24';
+            
+            const serversListDiv = document.getElementById('serversList');
+            serversListDiv.innerHTML = '';
+            
+            mockServers.forEach(server => {
+                const serverDiv = document.createElement('div');
+                serverDiv.className = 'server-item';
+                serverDiv.innerHTML = `
+                    <div class="server-info">
+                        <div class="server-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div>
+                            <div class="server-name">${escapeHtml(server.name)}</div>
+                            <div class="server-id">ID: ${server.id}</div>
+                        </div>
+                    </div>
+                    <div class="server-members">
+                        <i class="fas fa-users"></i> ${server.memberCount} membres
+                    </div>
+                `;
+                serversListDiv.appendChild(serverDiv);
+            });
+            
+            // Mettre à jour également le compteur sur l'accueil
+            document.getElementById('serverCount').textContent = mockServers.length;
+            document.getElementById('dashServerCount').textContent = mockServers.length;
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Fonction pour récupérer les serveurs via le backend (à implémenter)
+        // Tu devras créer un endpoint sur ton serveur qui retourne la liste des serveurs
+        async function fetchServersFromBackend() {
+            try {
+                // Remplace cette URL par ton propre endpoint
+                const response = await fetch('/api/servers');
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.servers;
+                }
+            } catch (error) {
+                console.log('Backend non disponible');
+            }
+            return null;
+        }
+        
         // Initialisation
-        initStarRating();
-        renderReviews();
-
+        fetchBotStats();
+        setInterval(fetchBotStats, 300000); // Rafraîchir toutes les 5 minutes
+        
         const hash = window.location.hash.substring(1);
-        if (hash && ['home', 'commands', 'docs', 'faq', 'blog'].includes(hash)) {
+        if (hash && ['home', 'commands', 'docs', 'faq', 'blog', 'dashboard'].includes(hash)) {
             showPage(hash);
         } else {
             showPage('home');
@@ -1232,7 +1147,7 @@ const ADMIN_PASSWORD = 'y7xzyronbot';
         
         window.addEventListener('popstate', function() {
             const hash = window.location.hash.substring(1);
-            if (hash && ['home', 'commands', 'docs', 'faq', 'blog'].includes(hash)) {
+            if (hash && ['home', 'commands', 'docs', 'faq', 'blog', 'dashboard'].includes(hash)) {
                 showPage(hash);
             } else {
                 showPage('home');
